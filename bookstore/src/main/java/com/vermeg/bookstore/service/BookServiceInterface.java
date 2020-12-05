@@ -14,13 +14,13 @@ public interface BookServiceInterface {
 	public Book getBookByISBN(long ISBN);
 	
 	@Transactional
-	public void add(Book book);
+	public boolean add(Book book);
 	
 	@Transactional
-	public void update(Book book);
+	public boolean update(Book book);
 	
 	@Transactional
-	public void delete(long ISBN);
+	public boolean delete(long ISBN);
 	
 	public double calculate(double price, int qte);
 	

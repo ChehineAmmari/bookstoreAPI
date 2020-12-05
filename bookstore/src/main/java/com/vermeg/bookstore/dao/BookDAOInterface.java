@@ -10,10 +10,10 @@ public interface BookDAOInterface {
 	
 	public Book getBookByISBN(long ISBN);
 	
-	public void add(Book book);
+	public boolean add(Book book);
 	
-	public void update(Book book);
+	public boolean update(Book book);
 	
-	public void delete(long id);
+	public boolean delete(long id);
 	
 }

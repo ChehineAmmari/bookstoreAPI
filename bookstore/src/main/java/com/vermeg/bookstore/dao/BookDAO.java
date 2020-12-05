@@ -28,24 +28,29 @@ public class BookDAO implements BookDAOInterface{
 		return book;
 	}
 	
-	public void add(Book book) {
+	public boolean add(Book book) {
 		
 		System.out.println(book.toString());
 		
 		Session session = this.sessionFactory.getCurrentSession();
 		session.persist(book);
+		return true;
 	}
 	
-	public void update(Book book) {
+	public boolean update(Book book) {
 		Session session = this.sessionFactory.getCurrentSession();
 		session.update(book);
+		return true;
 	}
 	
-	public void delete(long id) {
+	public boolean delete(long id) {
 		Session session = this.sessionFactory.getCurrentSession();
 		Book b = (Book) session.load(Book.class, id);
-		if(b != null)
+		if(b != null) {
 			session.delete(b);
+			return true;
+		}
+		return false;
 	}
 	
 }

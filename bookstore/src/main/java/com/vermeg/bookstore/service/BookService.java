@@ -26,18 +26,21 @@ public class BookService implements BookServiceInterface {
 	}
 	
 	@Transactional
-	public void add(Book book) {
+	public boolean add(Book book) {
 		bookDAO.add(book);
+		return true;
 	}
 	
 	@Transactional
-	public void update(Book book) {
+	public boolean update(Book book) {
 		bookDAO.update(book);
+		return true;
 	}
 	
 	@Transactional
-	public void delete(long ISBN) {
+	public boolean delete(long ISBN) {
 		bookDAO.delete(ISBN);
+		return true;
 	}
 	
 	public double calculate(double price, int qte) {
