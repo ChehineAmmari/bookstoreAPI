@@ -26,6 +26,7 @@ export class GetBookComponent implements OnInit {
     update(ISBN: number, title: string, authorName: string, releaseDate: Date, price: number): void {
         this.bookService.update(ISBN,title,authorName,releaseDate,price).subscribe((book) => {
             console.log('Book added from add-book.component.ts',book);
+            window.location.href = "http://localhost:4200/";
         })
     }
 

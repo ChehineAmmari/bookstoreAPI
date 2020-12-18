@@ -54,19 +54,39 @@ export class ShoppingCartComponent implements OnInit {
 
   delete(isbn: number): void {
 
-    this.cartService.remove(isbn);
-    this.books = this.cartService.getAllBooks();
-    this.quantities = this.cartService.getAllQuantities();
-    let newTotal = 0;
-    for(let i=0; i<this.books.length; i++) {
-        this.cartService.calculate(this.books[i].isbn, this.quantities[i]).subscribe(res => {
-            if(this.books.length <= 0)
-                newTotal = 0;
-            newTotal += res;
-            this.total = newTotal;
-        });
+        this.cartService.remove(isbn);
+        this.books = this.cartService.getAllBooks();
+        this.quantities = this.cartService.getAllQuantities();
+        let newTotal = 0;
+        for(let i=0; i<this.books.length; i++) {
+            this.cartService.calculate(this.books[i].isbn, this.quantities[i]).subscribe(res => {
+                if(this.books.length <= 0)
+                    newTotal = 0;
+                newTotal += res;
+                this.total = newTotal;
+            });
+        }
+        this.total = newTotal;
     }
-    this.total = newTotal;
-}
+
+
+    updateQte(isbn,qte) {
+        let index = this.books.map((b) => b.isbn).indexOf(isbn);
+        let newQte = parseInt(qte);
+        this.quantities[index] = newQte;
+        localStorage.setItem('quantities',JSON.stringify(this.quantities));
+        this.quantities = this.cartService.getAllQuantities();
+        
+        let newTotal = 0;
+        for(let i=0; i<this.books.length; i++) {
+            this.cartService.calculate(this.books[i].isbn, this.quantities[i]).subscribe(res => {
+                if(this.books.length <= 0)
+                    newTotal = 0;
+                newTotal += res;
+                this.total = newTotal;
+            });
+        }
+        this.total = newTotal;
+    }
 
 }

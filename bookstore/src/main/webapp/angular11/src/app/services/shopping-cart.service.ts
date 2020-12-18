@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 
 export class ShoppingCartService {
 
-  uri: string = 'http://localhost:8080/bookstore/api/book';
+  uri: string = 'http://localhost:8089/SpringMVCHibernateCRUDExample/api/book';
 
   books: Book[] = [];
   quantities: number[] = [];
@@ -28,9 +28,10 @@ export class ShoppingCartService {
         j++;
     });
       if(i >= 0) {
-        console.log(typeof quantity == "number")
-          this.quantities[i] = quantity;
-          
+          this.quantities[i] += quantity;
+          if(this.quantities[i] > 5){
+              this.quantities[i] = 5;
+          }
       }else {
           this.books.push(book);
           this.quantities.push(quantity);

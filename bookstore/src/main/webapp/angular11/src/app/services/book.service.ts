@@ -9,7 +9,7 @@ import { Book } from '../models/book';
     providedIn: 'root'
 })
 export class BookService {
-    uri: string = 'http://localhost:8080/bookstore/api/book';
+    uri: string = 'http://localhost:8089/SpringMVCHibernateCRUDExample/api/book';
 
     constructor(private http: HttpClient) { }
 

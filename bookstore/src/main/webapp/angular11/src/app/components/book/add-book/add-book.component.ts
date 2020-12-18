@@ -17,6 +17,7 @@ export class AddBookComponent implements OnInit {
     event.preventDefault();
       this.bookService.add(ISBN,title,authorName,releaseDate,price).subscribe((book) => {
           console.log('Book added from add-book.component.ts',book);
+          window.location.href = "http://localhost:4200/";
       })
   }
 

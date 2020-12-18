@@ -19,7 +19,9 @@
                 <td>{{ book.releaseDate }}</td>
                 <td>{{ book.authorName }}</td>
                 <td>{{ book.price }} DT</td>
-                <td>{{ quantities[books.indexOf(book)] }} </td>
+                <td>
+                    <input type="number" value="{{ quantities[books.indexOf(book)] }}" min="1" max="5" #qte (change)="updateQte(book.isbn,qte.value)">&nbsp;
+                </td>
                 <td><a (click)="delete(book.isbn)" class="btn btn-danger">Remove</a></td>
             </tr>
         </tbody>
