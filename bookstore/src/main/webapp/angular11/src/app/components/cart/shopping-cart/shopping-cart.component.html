@@ -1,0 +1,43 @@
+<div class="container">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <td>ISBN</td>
+                <td>Title</td>
+                <td>Release Date</td>
+                <td>Author Name</td>
+                <td>Unit Price</td>
+                <td>Quantity</td>
+                <td colspan="1">Actions</td>
+            </tr>
+        </thead>
+      
+        <tbody>
+            <tr *ngFor="let book of books">
+                <td>{{book.isbn }}</td>
+                <td>{{ book.title }}</td>
+                <td>{{ book.releaseDate }}</td>
+                <td>{{ book.authorName }}</td>
+                <td>{{ book.price }} DT</td>
+                <td>{{ quantities[books.indexOf(book)] }} </td>
+                <td><a (click)="delete(book.isbn)" class="btn btn-danger">Remove</a></td>
+            </tr>
+        </tbody>
+
+        <tfoot>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><b>Total: </b></td>
+                <td>{{ total }} DT</td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
+
+
+<button (click)="purchase()"  class="btn btn-success">Purchase</button>

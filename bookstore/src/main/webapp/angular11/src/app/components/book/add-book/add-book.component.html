@@ -1,0 +1,89 @@
+<h1>Add new Book</h1>
+<div class="card">
+    <div class="card-body">
+      <form>
+        <div class="form-group" style="margin: 20px;">
+            <label class="col-md-4">ISBN: </label>
+          <input type="number" class="form-control" #ISBN />
+        </div>
+        <div class="alert alert-danger" hidden>
+          <div>
+            ISBN is required.
+          </div>
+        </div>
+
+        <div class="form-group" style="margin: 20px;">
+          <label class="col-md-4">Title: </label>
+          <input type="text" class="form-control" #title/>
+        </div>
+        <div class="alert alert-danger" hidden>
+          <div>
+            Title is required.
+          </div>
+        </div>
+
+        <div class="form-group" style="margin: 20px;">
+          <label class="col-md-4">Author name:</label>
+          <input type="text" class="form-control" #authorName />
+        </div>
+        <div class="alert alert-danger" hidden>
+          <div>
+            Author name is required.
+          </div>
+        </div>
+
+        <div class="form-group" style="margin: 20px;">
+            <label class="col-md-4">Release date:</label>
+            <input type="date" class="form-control" #releaseDate />
+          </div>
+          <div class="alert alert-danger" hidden>
+            <div>
+              Release date is required.
+            </div>
+        </div>
+
+        <div class="form-group" style="margin: 20px;">
+            <label class="col-md-4">Price:</label>
+            <input type="number" class="form-control" #price />
+          </div>
+          <div class="alert alert-danger" hidden >
+            <div>
+              Price is required.
+            </div>
+        </div>
+
+        <div class="form-group" style="margin: 20px;">
+          <button (click) = "add(ISBN.value,title.value,authorName.value,releaseDate.value,price.value,$event)" type="submit" class="btn btn-primary" >
+            Add book
+          </button>
+        </div>
+      </form>
+    </div>
+</div>
+<!--<p>add-book works!</p>
+
+<form (submit)="add(ISBN.value,title.value,authorName.value,releaseDate.value,price.value,$event)">
+    <div>
+        <label>ISBN: </label>
+        <input type="number" #ISBN/>
+    </div>
+    <div>
+        <label>Title: </label>
+        <input type="text" #title/>
+    </div>
+    <div>
+        <label>Author name: </label>
+        <input type="text" #authorName/>
+    </div>
+    <div>
+        <label>Release date: </label>
+        <input type="date" #releaseDate/>
+    </div>
+    <div>
+        <label>Price: </label>
+        <input type="number" #price/>
+    </div>
+    <div>
+        <button type="submit">Add</button>
+    </div>
+</form> -->

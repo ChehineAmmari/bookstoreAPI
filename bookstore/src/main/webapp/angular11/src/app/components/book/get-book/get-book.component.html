@@ -1,0 +1,88 @@
+<h1>Edit book #{{ book.isbn }}</h1>
+<div class="card">
+    <div class="card-body">
+      <form>
+        <div class="form-group" style="margin: 20px;">
+            <label class="col-md-4">ISBN: </label>
+          <input type="number" value="{{book.isbn}}" class="form-control" #ISBN />
+        </div>
+        <div class="alert alert-danger" hidden>
+          <div>
+            ISBN is required.
+          </div>
+        </div>
+
+        <div class="form-group" style="margin: 20px;">
+          <label class="col-md-4">Title: </label>
+          <input type="text" class="form-control" value="{{book.title}}" #title/>
+        </div>
+        <div class="alert alert-danger" hidden>
+          <div>
+            Title is required.
+          </div>
+        </div>
+
+        <div class="form-group" style="margin: 20px;">
+          <label class="col-md-4">Author name:</label>
+          <input type="text" class="form-control"  value="{{book.authorName}}" #authorName />
+        </div>
+        <div class="alert alert-danger" hidden>
+          <div>
+            Author name is required.
+          </div>
+        </div>
+
+        <div class="form-group" style="margin: 20px;">
+            <label class="col-md-4">Release date:</label>
+            <input type="date" class="form-control"  value="{{book.releaseDate}}" #releaseDate />
+          </div>
+          <div class="alert alert-danger" hidden>
+            <div>
+              Release date is required.
+            </div>
+        </div>
+
+        <div class="form-group" style="margin: 20px;">
+            <label class="col-md-4">Price:</label>
+            <input type="number" class="form-control"  value="{{book.price}}" #price />
+          </div>
+          <div class="alert alert-danger" hidden >
+            <div>
+              Price is required.
+            </div>
+        </div>
+
+        <div class="form-group" style="margin: 20px;">
+          <button (click) = "update(ISBN.value,title.value,authorName.value,releaseDate.value,price.value)" type="submit" class="btn btn-primary" >
+            Edit book
+          </button>
+        </div>
+      </form>
+    </div>
+</div>
+
+<!--<form>
+    <div>
+        <label>ISBN: </label>
+        <input type="number" value="{{book.isbn}}" #ISBN/>
+    </div>
+    <div>
+        <label>Title: </label>
+        <input type="text"  value="{{book.title}}" #title/>
+    </div>
+    <div>
+        <label>Author name: </label>
+        <input type="text"  value="{{book.authorName}}" #authorName/>
+    </div>
+    <div>
+        <label>Release date: </label>
+        <input type="date"  [(ngModel)]="book.releaseDate" [ngModelOptions]="{standalone: true}" #releaseDate/>
+    </div>
+    <div>
+        <label>Price: </label>
+        <input type="number"  value="{{book.price}}" #price/>
+    </div>
+    <div>
+        <button type="submit" (click)="update(ISBN.value,title.value,authorName.value,releaseDate.value,price.value)">Edit</button>
+    </div>
+</form>-->
